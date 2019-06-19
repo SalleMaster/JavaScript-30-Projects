@@ -21,7 +21,7 @@ function playSound(e) {
     audioFiles.forEach(audio => {
         const key = parseInt(audio.dataset.key);
         if(code === key) {
-            console.log(audio);
+            
              audio.currentTime = 0;
             audio.play();
         }
