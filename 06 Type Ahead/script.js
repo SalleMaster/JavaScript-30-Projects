@@ -2,6 +2,7 @@ const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb
 
 const search = document.querySelector('.search');
 const suggestions = document.querySelector('.suggestions');
+const searchForm = document.querySelector('.city-input');
 
 
 const cities = [];
@@ -24,7 +25,13 @@ function handleSearch(e) {
     }).join('');
 
     suggestions.innerHTML = html;
-    console.log(html);
+    
+}
+
+
+function handleSubmit(e) {
+    e.preventDefault();
 }
 
 search.addEventListener('keyup', handleSearch);
+searchForm.addEventListener('submit', handleSubmit);
