@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: #ffc600;
+}
+
+body {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.checklist-wrapper {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.checklist {
+    list-style: none;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
+
+}
+
+.checklist-item {
+    display: flex;
+    height: 50px;
+    align-items: center;
+}
+
+.checklist-item p {
+    height: 100%;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    border-left: 1px solid #D1E2FF;
+}
+
+input:checked + p {
+    text-decoration: line-through;
+}
