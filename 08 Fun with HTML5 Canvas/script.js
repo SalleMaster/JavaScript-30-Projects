@@ -21,12 +21,12 @@ function initilaizeDrawing(e) {
     
     [lastX, lastY] = [e.clientX, e.clientY];
     isDrawing = true;
-    console.log(isDrawing);
+    
 }
 
 function cancelDrawing(e) {
     isDrawing = false;
-    console.log(isDrawing);
+    
 }
 
 
@@ -47,7 +47,7 @@ function draw(e) {
     }
 
     if(ctx.lineWidth > 100 || ctx.lineWidth <= 1) {
-        console.log(ctx.lineWidth);
+        
         direction = !direction;
     }
 
