@@ -6,7 +6,7 @@ const cities = [];
 const request = async () => {
     const response = await fetch(endpoint);
     const json = await response.json();
-    return json;
+    console.log(json);
 }
 
 let names = cities.map(data => data.city);
