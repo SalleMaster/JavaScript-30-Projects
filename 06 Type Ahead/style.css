@@ -55,6 +55,7 @@ body {
     padding: 10px;
     font-size: 1.3rem;
     box-shadow: 0px 0px 5px rgb(143, 143, 143);
+    text-transform: capitalize;
 }
 
 .suggestions li:nth-child(odd) {
@@ -67,3 +68,6 @@ body {
     transform: perspective(100px) rotateX(5deg) translateY(-2px);
 }
 
+.hl {
+    background: #ffc600;
+}

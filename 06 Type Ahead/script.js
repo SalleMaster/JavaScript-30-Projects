@@ -18,9 +18,11 @@ function handleSearch(e) {
     const citiesMatch = cities.filter(city => city.city.match(word) || city.state.match(word));
 
     const html = citiesMatch.map(place => {
+        const city = place.city.replace(word, `<span class='hl'>${this.value}</span>`);
+        const state = place.state.replace(word, `<span class='hl'>${this.value}</span>`);
         return `
         <li>
-        ${place.city}, ${place.state}
+        <span>${city},  ${state}</span>
         </li>`
     }).join('');
 
