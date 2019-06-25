@@ -1,16 +1,11 @@
-const checkboxes  = document.querySelectorAll('.checklist-item input');
+const checkboxes = document.querySelectorAll('.checklist-item input');
 let lastChecked;
-
-
-
-function handleCheck(e) {
-    
+function handleChecking(e) {
     let inBetween = false;
-    // if shift is down loop trough checkboxes
-    if(e.shiftKey) {
+
+    if(e.shiftKey && lastChecked.checked) {
         checkboxes.forEach(checkbox => {
-            
-            if(checkbox === lastChecked || checkbox === this) {
+            if(checkbox === this || checkbox === lastChecked) {
                 inBetween = !inBetween;
             }
 
@@ -19,10 +14,11 @@ function handleCheck(e) {
             }
         })
     }
+
+
+
     lastChecked = this;
 }
 
 
-
-checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
-
+checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleChecking));

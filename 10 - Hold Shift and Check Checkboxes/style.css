@@ -24,16 +24,20 @@ body {
 .checklist {
     list-style: none;
     background: white;
-    padding: 20px;
-    border-radius: 10px;
+    border-radius: 10px 0px 10px 10px;
     box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
-
+    width: 400px;
+    display: grid;
+    grid-auto-rows: 60px;
+    grid-gap: 0;
 }
 
 .checklist-item {
     display: flex;
-    height: 50px;
+    height: 100%;
     align-items: center;
+    padding: 0px 0px 0px 20px;
+    border-bottom: 1px solid #D1E2FF;
 }
 
 .checklist-item p {
@@ -43,8 +47,13 @@ body {
     align-items: center;
     padding-left: 20px;
     border-left: 1px solid #D1E2FF;
+    padding-right: 20px;
+    transition-duration: 200ms;
+    flex: 1;
 }
 
 input:checked + p {
     text-decoration: line-through;
+    background: rgb(243, 243, 243);
+    flex: 1;
 }
