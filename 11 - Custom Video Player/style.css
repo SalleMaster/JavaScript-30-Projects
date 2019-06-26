@@ -30,7 +30,7 @@ body {
     align-content: center;
     position: absolute;
     bottom: 0px;
-    transform: translateY(90%);
+    transform: translateY(60%);
     transition-duration: 200ms;
 }
 
@@ -43,6 +43,10 @@ body {
     flex: 1 100%;
     background: rgba(0,0,0,0.3);
     display: flex;
+}
+
+.progress-bar:hover {
+  cursor: e-resize;
 }
 
 .progress {
@@ -67,6 +71,14 @@ body {
   width: 100%;
   height: 100%;
   display: flex;
+}
+
+.current-time {
+  flex: 1 100%;
+  display: flex;
+  color: white;
+  padding: 0px 10px 5px 0px;
+  justify-content: end;
 }
 
 

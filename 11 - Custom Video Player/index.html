@@ -15,12 +15,16 @@
         <video src="cartoon.mp4" class="video"></video>
 
         <div class="controls">
+            <div class="current-time">
+                <span class="time">0:00</span>
+            </div>
             <div class="progress-bar">
                 <div class="progress"></div>
             </div>
             <button class="play-pause play"><i class="fas fa-play"></i></button>
             <input type="range" class="volume" name='volume' min="0" max="1" step="0.05" value="1">
-            <input type="range" class="speed" name='playbackRate' min="0.5" max="2" step="0.1" value="1">
+            <input type="range" class="playbackRate" name='playbackRate' min="0.5" max="2" step="0.1" value="1">
+            <button class="default-playback-rate">1x</button>
             <button class='skip-forward skip' data-skip="10"><i class="fas fa-forward"></i>10s</button>
             <button class='skip-backward skip' data-skip="-10"><i class="fas fa-backward"></i>10s</button>
         </div>
