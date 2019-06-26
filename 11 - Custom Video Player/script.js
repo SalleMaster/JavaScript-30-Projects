@@ -31,7 +31,6 @@ function handlePlay() {
 function handleSliders() {
     const name = this.name;
     const value = this.value;
-    console.log(name, value);
     video[name] = value;
 }
 
