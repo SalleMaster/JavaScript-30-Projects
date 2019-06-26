@@ -6,7 +6,7 @@ const playBtn = player.querySelector('.controls .play-pause');
 const sliders = player.querySelectorAll('.controls [type=range]');
 const skippers = player.querySelectorAll('.controls .skip');
 const defaultPlaybackRate = player.querySelector('.default-playback-rate');
-const time = player.querySelector('.time');
+const displayTime = player.querySelector('.time');
 let mousedown = false;
 
 
@@ -31,6 +31,13 @@ function handlePlay() {
 function handleSliders() {
     const name = this.name;
     const value = this.value;
+    console.log(name, value);
+    video[name] = value;
+}
+
+function resetSliders(slider) {
+    const name = slider.name;
+    const value = slider.value;
     video[name] = value;
 }
 
@@ -47,7 +54,9 @@ function handleSkip() {
 function handleProgress() {
     const perCent = (100 / video.duration * video.currentTime).toFixed(2);
     progress.style.flexBasis = `${perCent}%`;
-    time.innerHTML = video.currentTime;
+    const currentTime = video.currentTime;
+    const time = formatSeconds(currentTime);
+    displayTime.innerHTML = time;
 }
 
 
@@ -79,22 +88,34 @@ function formatSeconds(sec) {
     let hour = 0;
     let minute = Math.floor(sec / 60);
     let second = Math.floor(sec % 60);
-    if(minute > 60) {
-        let hour = Math.floor(minute / 60);
+    if(minute >= 60) {
+        hour = Math.floor(minute / 60);
         minute = Math.floor(minute % 60)
     }
 
     let time;
 
     if(hour === 0) {
-        time = `${minute}:${second < 10 ? '0': ''}${second}`
+        time = `${minute}:${second < 10 ? '0': ''}${second}`;
     } else {
         time = `${hour}:${minute < 10 ? '0': ''}${minute}:${second < 10 ? '0': ''}${second}`;
     }
-    
-    
+
 
     return time;
+
+}
+
+
+// Reset player if video has ended
+function resetPlayer() {
+    displayTime.innerHTML = '0:00';
+    progress.style.flexBasis = '0%';
+    playBtn.innerHTML = '<i class="fas fa-play"></i>';
+    sliders.forEach(slider => {
+        slider.value = 1;
+        resetSliders(slider);
+    });
 }
 
 
@@ -130,4 +151,8 @@ progressBar.addEventListener('mousedown', updateProgress);
 
 // Default playbackRate listener
 defaultPlaybackRate.addEventListener('click', defaultRate);
+
+
+// Video end listener
+video.addEventListener('ended', resetPlayer);
 
