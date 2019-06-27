@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Look at the console</h2>
+</body>
+
+
+<script>
+
+// start with strings, numbers and booleans
+
+let age = 100;
+let age2 = 100;
+console.log({age, age2});
+
+age2 = 200;
+console.log({age, age2});
+
+// But an arrays are a diffrent story
+let names = ['salle', 'jovana', 'mica', 'pera', 'zika'];
+let names2 = names;
+console.table({names, names2});
+
+// If you change names2 it also changes original names becouse names2 is a refrence, not a copy!
+names2[0] = 'moron';
+console.table({names, names2});
+
+// You can copy array using ES6 spread method
+names3 = [...names];
+names3[0] = 'excelsior';
+console.table({names, names3});
+
+// ... or array.from method
+names4 = Array.from(names);
+names4[0] = 'accordion';
+console.table({names4, names});
+
+// ...or slice() method
+names5 = names.slice();
+names5[0] = 'geForce';
+console.table({names, names5});
+
+
+// And now objects
+let object = {
+    salle: 'ime',
+    godina: 28,
+    pol: 'm',
+}
+
+let object2 = object;
+
+// Make a copy of an object with new ES6 object spread method
+let object3 = {...object};
+object3.salle = 'prezime';
+console.table({object, object3});
+
+// Make a copy one level deep
+let object4 = Object.assign({}, object);
+object4.salle = 'najbolje ime';
+console.table({object, object4});
+
+// But what about deepr levels 
+let deepObject = {
+    salle: {
+        ime: 'Sasa',
+        prezime: 'Radovanovic',
+        godiste: 1993,
+    },
+
+    jovana: {
+        ime: 'Jovana',
+        prezime: 'Djokovic',
+        godiste: 1993,
+    },
+};
+
+let deepObject2 = {...deepObject};
+
+// object spread wont work when object is deeper than one level
+deepObject2.salle.ime = 'SalleMaster';
+console.log({deepObject, deepObject2});
+
+// You can doo something like this if you really need to
+let deepObject3 = JSON.parse(JSON.stringify(deepObject));
+
+deepObject3.salle.ime = 'Novo Ime';
+console.clear();
+console.log(deepObject3);
+
+</script>
+</html>
+
