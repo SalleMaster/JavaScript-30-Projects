@@ -10,11 +10,17 @@ html {
     background: #ffc600;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+}
+
 article {
     padding: 50px;
     margin: 50px;
     font-size: 1.3rem;
     background: white;
+    max-width: 1000px;
 }
 
 article h2 {
@@ -49,6 +55,8 @@ article img.active {
     transform: translateX(0);
     opacity: 1;
 }
+
+
 
 
 
