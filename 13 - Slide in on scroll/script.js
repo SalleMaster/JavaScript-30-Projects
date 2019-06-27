@@ -27,9 +27,16 @@ function handleScroll(e) {
             const imageHeight = image.height;
             const imageTop = image.offsetTop;
             const imageBottom = image.offsetTop + imageHeight;
+            const imageMiddle = imageTop + imageHeight/2;
 
-            
-            console.log({imageHeight, imageBottom, imageTop});
+            if(scrollBottom > imageMiddle || scrollTop < imageMiddle) {
+              image.classList.add('active');
+            }
+
+            if(scrollTop > imageBottom || scrollBottom < imageTop) {
+              image.classList.remove('active');
+            }
+            console.log({imageHeight, imageBottom, imageTop, scrollBottom, scrollTop});
         })
         
  
