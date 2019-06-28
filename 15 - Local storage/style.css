@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    background: url(https://decwap8ztgrry.cloudfront.net/items/26432Y0U0G3l0P3N1C1I/restaurant-691397_1280.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.svg-wrapper svg {
+    fill: rgba(0,0,0,0.8);
+}
+
+.svg-wrapper {
+    margin: 50px 0 20px 0;
+    background: rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+}
+
+.menu-wrapper {
+    background: rgba(255, 255, 255, 0.699);
+    padding: 30px;
+    box-shadow: 0 0 0 10px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.menu-wrapper h3 {
+    font-size: 2.5rem;
+}
+
+.menu-wrapper ul {
+    list-style: none;
+}
+
+.menu-wrapper ul li {
+    padding: 10px 10px 10px 0px;
+    border-bottom: 1px solid black;
+    font-size: 1.5rem;
+}
+
+.menu-wrapper ul li input {
+    margin-right: 10px;
+}
+
+.menu-wrapper form {
+    height: 50px;
+    width: 400px;
+    display: flex;
+    margin-top: 30px;
+}
+
+.menu-wrapper form input[type='text'] {
+    width: 250px;
+    padding: 20px;
+    margin-right: 20px;
+    font-size: 1.5rem;
+}
+
+.menu-wrapper form input[type='submit'] {
+    flex: 1;
+    font-size: 1.1rem;
+    background: rgba(0,0,0,0.1);
+    border: none;
+}
+
+.menu-wrapper form input[type='submit']:hover {
+    border: none;
+    background: rgba(0,0,0,0.3);
+}
+
+.clear {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    background: rgba(0,0,0,0.1);
+    border: none;
+}
+
+.clear:hover {
+    background: rgba(0,0,0,0.3);
+}
