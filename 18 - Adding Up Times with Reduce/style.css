@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    background: url(https://source.unsplash.com/KCnX0ux2jFo/1280x720);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    justify-content: left;
+    position: relative;
+}
+
+.videos {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;
+    width: 600px;
+    list-style: none;
+}
+
+.videos li {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    font-size: 1.3rem;
+    background: rgba(0,0,0,0.5);
+    margin: 5px;
+}
+
+.total-time {
+    position: fixed;
+    right: 30px;
+    top: 30px;
+    color: white;
+}
