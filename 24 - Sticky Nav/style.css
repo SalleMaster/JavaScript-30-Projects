@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    background: #e0e0e0;
+}
+
+body {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+
+/* Cover Styling */
+.cover {
+    min-width: 100%;
+    height: 50vh;
+    background: url(https://decwap8ztgrry.cloudfront.net/items/331o2t1L3t1y160m3N2c/Image%202016-11-24%20at%202.45.35%20PM.jpg);
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    text-shadow: 5px 5px 10px black;
+}
+
+
+/* Navigation Styling */
+.main-nav {
+    min-width: 100%;
+}
+
+.main-nav .nav-list{
+    display: flex;
+    height: 60px;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-nav .nav-list li {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    font-size: 1.6rem;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-list li.lost {
+    background: white;
+    color: black;
+    transition-duration: 400ms;
+}
+
+.nav-list li.lost.hidden {
+    max-width: 0%;
+}
+.nav-list li.lost.active {
+    max-width: 100%;
+}
+
+.nav-list li.lost a {
+    color: black;
+    font-weight: 600;
+}
+
+/* Article Styling */
+article {
+    max-width: 700px;
+    margin: 100px 0 100px 0;
+    padding: 30px;
+    background: white;
+    box-shadow: 0 0 10px rgb(65, 65, 65);
+    transform: scale(0.99);
+    transition-duration: 500ms;
+}
+
+article.active {
+    transform: scale(1);
+}
+
+article p {
+    margin: 20px 0 20px 0;
+    text-align: justify;
+    font-size: 1.1rem;
+}
+
