@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 html {
     font-size: 16px;
     font-family: 'Times New Roman', Times, serif;
@@ -67,13 +68,11 @@ body {
     background: white;
     color: black;
     transition-duration: 400ms;
-}
-
-.nav-list li.lost.hidden {
     max-width: 0%;
 }
 
-.main-nav.fixed .nav-list li.lost {
+
+body.fixed-nav li.lost {
     max-width: 100%;
 }
 
@@ -83,25 +82,31 @@ body {
 }
 
 /* Navigation Fixed */
-.main-nav.fixed {
+body.fixed-nav .main-nav {
     position: fixed;
 }
+
+/* Separation */
+.separation {
+    width: 100%;
+}
+
 
 /* Article Styling */
 article {
     display: flex;
     flex-direction: column;
     max-width: 700px;
-    margin: 150px 0 100px 0;
+    margin: 200px 0px 100px 0px;
     padding: 30px;
     background: white;
     box-shadow: 0 0 10px rgb(65, 65, 65);
-    transform: scale(0.99);
-    transition-duration: 1000ms;
+    transform: scale(0.98);
+    transition-duration: 500ms;
     overflow: hidden;
 }
 
-article.active {
+body.fixed-nav article {
     transform: scale(1);
 }
 

@@ -2,6 +2,8 @@
 const navBar = document.querySelector('.main-nav');
 const lostMenu = navBar.querySelector('.lost');
 const navBarOffestTop = navBar.offsetTop;
+const body = document.querySelector('body');
+const separation = document.querySelector('.separation');
 
 // Article
 const article = document.querySelector('article');
@@ -30,26 +32,38 @@ function debounce(func, wait = 10, immediate = true) {
 function scrollFunction(e) {
     const scrollTop = e.pageY;
     const scrollBottom = e.pageY + window.innerHeight;
-    
+
     // Handling Navigation Bar and Article
     if (scrollTop >= navBarOffestTop) {
-        navBar.classList.add('fixed');
-        article.style.position = 'absolute';
-        // Original offsetTop - article top margin
-        article.style.top = `${articleOffsetTop - 150}px`;
+        body.classList.add('fixed-nav');
+        separation.style.height = '60px';
     } else {
-        navBar.classList.remove('fixed');
-        article.style.position = '';
-        
+        body.classList.remove('fixed-nav');
+        separation.style.height = '0px';
     }
-
-    // Handling Article Images
-
-
-    
 }
 
 
+function imageSlideIn(e) {
+    const scrollTop = e.pageY;
+    const scrollBottom = e.pageY + window.innerHeight;
 
 
-window.addEventListener('scroll', debounce(scrollFunction));
+    images.forEach(image => {
+        const imageRect = image.getBoundingClientRect();
+        const imageTop = Math.floor(imageRect.top) + scrollTop;
+        const imageBottom = imageTop + image.height;
+        const imageMiddle = imageTop + (image.height / 2);
+
+        if (scrollBottom >= imageMiddle) {
+            image.classList.add('active');
+        };
+
+        if (scrollBottom < imageMiddle || scrollTop >= imageMiddle) {
+            image.classList.remove('active');
+        };
+    })
+}
+
+window.addEventListener('scroll', scrollFunction);
+window.addEventListener('scroll', debounce(imageSlideIn));
