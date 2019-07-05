@@ -32,7 +32,7 @@ function debounce(func, wait = 10, immediate = true) {
 function scrollFunction(e) {
     const scrollTop = e.pageY;
     const scrollBottom = e.pageY + window.innerHeight;
-
+    
     // Handling Navigation Bar and Article
     if (scrollTop >= navBarOffestTop) {
         body.classList.add('fixed-nav');
