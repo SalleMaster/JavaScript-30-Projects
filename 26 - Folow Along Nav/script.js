@@ -6,7 +6,9 @@ function activateDropdown() {
     const dropdown = this.querySelector('.dropdown');
     dropdown.classList.add('display');
     setTimeout(() => {
-        dropdown.classList.add('opacity');
+        if (dropdown.classList.contains('display')) {
+            dropdown.classList.add('opacity');
+        };
     }, 100);
 
     const rect = dropdown.getBoundingClientRect();
@@ -19,10 +21,12 @@ function activateDropdown() {
     
     background.classList.add('active');
 
-    background.style.width = `${coords.width}px`;
-    background.style.height = `${coords.height}px`;
-    background.style.top = `${coords.top}px`;
-    background.style.left = `${coords.left}px`;
+    setTimeout(() => {
+        background.style.width = `${coords.width}px`;
+        background.style.height = `${coords.height}px`;
+        background.style.top = `${coords.top}px`;
+        background.style.left = `${coords.left}px`;
+    }, 1);
 
     
 }
