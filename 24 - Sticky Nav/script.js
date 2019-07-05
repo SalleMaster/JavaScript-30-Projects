@@ -1,7 +1,7 @@
 // Navigation 
 const navBar = document.querySelector('.main-nav');
 const lostMenu = navBar.querySelector('.lost');
-const navBarOffestTop = navBar.offsetTop;
+let navBarOffestTop = '';
 const body = document.querySelector('body');
 const separation = document.querySelector('.separation');
 
@@ -29,9 +29,13 @@ function debounce(func, wait = 10, immediate = true) {
 };
 
 
-function scrollFunction(e) {
-    const scrollTop = e.pageY;
-    const scrollBottom = e.pageY + window.innerHeight;
+function scrollFunction() {
+    // !!!!! Inportant: Get scrollY from WINDOW not from event
+    const scrollTop = window.scrollY;
+    const scrollBottom = window.scrollY + window.innerHeight;
+    if (navBarOffestTop === '') {
+        navBarOffestTop = navBar.offsetTop;
+    };
     
     // Handling Navigation Bar and Article
     if (scrollTop >= navBarOffestTop) {
@@ -45,8 +49,8 @@ function scrollFunction(e) {
 
 
 function imageSlideIn(e) {
-    const scrollTop = e.pageY;
-    const scrollBottom = e.pageY + window.innerHeight;
+    const scrollTop = window.scrollY;
+    const scrollBottom = window.scrollY + window.innerHeight;
 
 
     images.forEach(image => {
