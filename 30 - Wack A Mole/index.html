@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+    <title>Wack A Mole</title>
+</head>
+
+<body>
+    <div class="score-div">Score: <span class="score"></span></div>
+
+    <div class="wrapper">
+        
+
+        <div class="header">
+            <h1>Wack-A-Mole!</h1>
+        </div>
+
+        <div class="menu">
+            <button class="start">Start</button>
+
+            <div class="selections">
+                <form class="dificulty">
+                    <label for="dificulty">Select Dificulty</label>
+                    <select name="dificulty" id="dificulty">
+                        <option value="1000" selected="selected">Easy</option>
+                        <option value="700">Medium</option>
+                        <option value="500">Hard</option>
+                    </select>
+                </form>
+                <form class="time">
+                    <label for="time">Select Game Duration</label>
+                    <select name="time" id="time">
+                        <option value="10" selected="selected">10 seconds</option>
+                        <option value="20">20 seconds</option>
+                        <option value="30">30 seconds</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+
+        <div class="moles">
+            <div class="mole">
+                <img id="mole" src="images/mole.svg">
+                <img id="dirt" src="images/dirt.svg">
+            </div>
+            <div class="mole">
+                <img id="mole" src="images/mole.svg">
+                <img id="dirt" src="images/dirt.svg">
+            </div>
+            <div class="mole">
+                <img id="mole" src="images/mole.svg">
+                <img id="dirt" src="images/dirt.svg">
+            </div>
+            <div class="mole">
+                <img id="mole" src="images/mole.svg">
+                <img id="dirt" src="images/dirt.svg">
+            </div>
+            <div class="mole">
+                <img id="mole" src="images/mole.svg">
+                <img id="dirt" src="images/dirt.svg">
+            </div>
+            <div class="mole">
+                <img id="mole" src="images/mole.svg">
+                <img id="dirt" src="images/dirt.svg">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
