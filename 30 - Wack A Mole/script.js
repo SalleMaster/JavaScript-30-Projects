@@ -3,50 +3,85 @@ const score = document.querySelector('.score');
 const startBtn = wrapper.querySelector('.start');
 const dificulty = wrapper.querySelector('#dificulty');
 const moles = wrapper.querySelectorAll('#mole');
-const time = wrapper.querySelector('#time');
+const selectedTime = wrapper.querySelector('#time');
 let count;
 let lastScore = 0;
-
-
-function startGame() {
-    score.innerHTML = '';
-    clearInterval(count);
-    let gameDuration = parseInt(time.value);
-    const gameDificulty = parseInt(dificulty.value);
-
-    count = setInterval(() => {
-        gameDuration--;
-        if (gameDuration === 0) {
-            clearInterval(count);
-        }
-    }, 1000);
-
-    showMole = setInterval(() => {
-        if (gameDuration === 0) return;
-        const index = randomNumber(0, 5);
-        const mole = moles[index];
-        mole.style.transform = `translateY(0px)`;
-        setTimeout(() => {
-            mole.style.transform = `translateY(100%)`;
-        }, gameDificulty);
-    }, gameDificulty);
-
-}
+let lastMole;
+let timeOut = false;
 
 
 
+
+// Random number 
 function randomNumber(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+  }
+
+// Random Mole
+function getMole() {
+    const mole = moles[randomNumber(0, moles.length)];
+    // Check if it is not the same as the last one
+    if (mole === lastMole) {
+        return getMole()
+    };
+
+    lastMole = mole;
+
+    return mole;
 }
 
+// Pop a Mole
+function popMole() {
+    const time = parseInt(dificulty.value);
+    const mole = getMole();
 
-function addScore(e) {
+    mole.style.transform = 'translateY(0)';
+
+    setTimeout(() => {
+        mole.style.transform = 'translateY(100%)';
+
+        if (timeOut) {
+            popMole();
+        }
+    }, time);
+    
+    
+    
+}
+
+// Game duration countdown
+function countdown() {
+    const gameDuration = parseInt(selectedTime.value) * 1000; // Need to get miliseconds
+    timeOut = true;
+    
+    setTimeout(() => {
+        timeOut = false;
+        
+    }, gameDuration);
+    
+}
+
+// Tracking Score
+function wackMole(e) {
+    if (!e.isTrusted) return;
+    this.style.transform = 'translateY(100%)';
     lastScore++;
     score.innerHTML = lastScore;
-    this.style.transform = 'translateY(100%)';
 }
 
-moles.forEach(mole => mole.addEventListener('click', addScore));
+
+// Starting Game
+function startGame() {
+    lastScore = 0;
+    score.innerHTML = '0';
+
+    countdown()
+
+    popMole();
+}
+
+// Listeners
+moles.forEach(mole => mole.addEventListener('click', wackMole));
 startBtn.addEventListener('click', startGame);
